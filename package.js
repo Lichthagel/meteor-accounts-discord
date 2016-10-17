@@ -1,6 +1,6 @@
 Package.describe({
   name: 'lichthagel:accounts-discord',
-  version: '0.1.3',
+  version: '0.1.4',
   // Brief, one-line summary of the package.
   summary: 'Adds account support for Discord',
   // URL to the Git repository containing the source code for this package.
