@@ -12,14 +12,31 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.versionsFrom('1.4.1.2');
-  api.use('ecmascript');
+
+  api.use('oauth2', ['client', 'server']);
+  api.use('oauth', ['client', 'server']);
+  api.use('http', ['server']);
+  api.use('underscore', 'client');
+  api.use('templating', 'client');
+  api.use('random', 'client');
+  api.use('service-configuration', ['client', 'server']);
 
   api.use('accounts-base', ['client', 'server']);
   // Export Accounts (etc) to packages using this one.
   api.imply('accounts-base', ['client', 'server']);
   api.use('accounts-oauth', ['client', 'server']);
 
-  api.mainModule('accounts-discord.js');
+  api.export('Discord');
+
+  api.addFiles(['discord_configure.html', 'discord_configure.js'], 'client');
+
+  api.addFiles('discord_server.js', 'server');
+
+  api.addFiles('discord_client.js', 'client');
+
+  api.addFiles('discord_login_button.css', 'client');
+
+  api.addFiles('accounts-discord.js');
 });
 
 /*Package.onTest(function(api) {
