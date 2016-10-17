@@ -13,6 +13,12 @@ Package.describe({
 Package.onUse(function (api) {
   api.versionsFrom('1.4.1.2');
   api.use('ecmascript');
+
+  api.use('accounts-base', ['client', 'server']);
+  // Export Accounts (etc) to packages using this one.
+  api.imply('accounts-base', ['client', 'server']);
+  api.use('accounts-oauth', ['client', 'server']);
+
   api.mainModule('accounts-discord.js');
 });
 
