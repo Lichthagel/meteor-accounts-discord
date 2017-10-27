@@ -17,8 +17,7 @@ Discord.requestCredential = function (options, credentialRequestCompleteCallback
   var credentialToken = Random.secret();
 
   var scope = (options && options.requestPermissions) || ['identify', 'email', 'connections', 'guilds', 'guilds.join'];
-  var flatScope = _.map(scope, encodeURIComponent).join('%20');
-
+  var flatScope = _.map(scope, encodeURIComponent).join(' ');
   var loginStyle = OAuth._loginStyle('discord', config, options);
 
   var loginUrl =
