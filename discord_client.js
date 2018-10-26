@@ -34,6 +34,6 @@ Discord.requestCredential = function (options, credentialRequestCompleteCallback
     loginUrl: loginUrl,
     credentialRequestCompleteCallback: credentialRequestCompleteCallback,
     credentialToken: credentialToken,
-    popupOptions: { width: 900, height: 450 }
+    popupOptions: { width: 450, height: 750 }
   });
 };
