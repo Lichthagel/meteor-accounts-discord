@@ -6,7 +6,7 @@ Package.describe({
 });
 
 Package.onUse(api => {
-    api.use('ecmascript', 'client');
+    api.use('ecmascript@0.12.4', 'client');
     api.use('templating@1.2.13', 'client');
     api.addFiles('discord_login_button.css', 'client');
     api.addFiles(
