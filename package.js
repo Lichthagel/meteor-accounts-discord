@@ -1,6 +1,6 @@
 Package.describe({
   name: 'lichthagel:accounts-discord',
-  version: '0.1.4_2',
+  version: '0.2.0',
   // Brief, one-line summary of the package.
   summary: 'Adds account support for Discord',
   // URL to the Git repository containing the source code for this package.
@@ -11,37 +11,20 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
-  api.versionsFrom('1.4.1.2');
-
-  api.use('oauth2', ['client', 'server']);
-  api.use('oauth', ['client', 'server']);
-  api.use('http', ['server']);
-  api.use('underscore', 'client');
-  api.use('templating', 'client');
-  api.use('random', 'client');
-  api.use('service-configuration', ['client', 'server']);
-
+  api.use('ecmascript');
   api.use('accounts-base', ['client', 'server']);
   // Export Accounts (etc) to packages using this one.
   api.imply('accounts-base', ['client', 'server']);
+
   api.use('accounts-oauth', ['client', 'server']);
+  api.use('lichthagel:discord-oauth');
+  api.imply('lichthagel:discord-oauth');
 
-  api.export('Discord');
-
-  api.addFiles(['discord_configure.html', 'discord_configure.js'], 'client');
-
-  api.addFiles('discord_server.js', 'server');
-
-  api.addFiles('discord_client.js', 'client');
-
-  api.addFiles('discord_login_button.css', 'client');
-
-  api.addFiles('accounts-discord.js');
+  api.use(
+    ['accounts-ui', 'lichthagel:discord-config-ui'],
+    ['client', 'server'],
+    { weak: true }
+  );
+  api.addFiles('notice.js');
+  api.addFiles('discord.js');
 });
-
-/*Package.onTest(function(api) {
-  api.use('ecmascript');
-  api.use('tinytest');
-  api.use('lichthagel:accounts-discord');
-  api.mainModule('accounts-discord-tests.js');
-});*/
