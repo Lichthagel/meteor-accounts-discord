@@ -22,7 +22,7 @@ Discord.requestCredential = (options, credentialRequestCompleteCallback) => {
     const loginStyle = OAuth._loginStyle('discord', config, options);
 
     const loginUrl =
-        'https://discordapp.com/api/oauth2/authorize' +
+        'https://discord.com/api/oauth2/authorize' +
         '?client_id=' + config.clientId +
         '&response_type=code' +
         '&scope=' + flatScope +
