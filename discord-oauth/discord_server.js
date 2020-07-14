@@ -53,7 +53,7 @@ const getTokens = query => {
     let response;
     try {
         response = HTTP.post(
-            "https://discordapp.com/api/oauth2/token", {
+            "https://discord.com/api/oauth2/token", {
                 headers: {
                     Accept: 'application/json',
                     "User-Agent": userAgent
@@ -83,7 +83,7 @@ const getTokens = query => {
 const getIdentity = accessToken => {
     try {
         return HTTP.get(
-            "https://discordapp.com/api/users/@me", {
+            "https://discord.com/api/users/@me", {
                 headers: {
                     "User-Agent": userAgent,
                     "Authorization": "Bearer " + accessToken
